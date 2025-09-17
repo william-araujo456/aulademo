@@ -25,7 +25,7 @@ if exists(conf):
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-1&n*-w^h$tt0unnr-ee6=b6d_n++ox#k)z&ins07ix2yn_40p4'
+SECRET_KEY = 'django-insecure-ro^s1(e(b6ha)8np@#(dt6ru5jbwff%9u+6qrn$f3$y$9+xxb8'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -136,9 +136,8 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.SessionAuthentication',
-        'rest_framework_simplejwt.authentication.JWTAuthentication'
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
 }
 
-CROW_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_ALL_ORIGINS = True
