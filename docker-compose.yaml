@@ -4,7 +4,7 @@ services:
     environment:
       - POSTGRES_DB=aulademo
       - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=fpf2023
+      - POSTGRES_PASSWORD=123
     ports:
       - "5432:5432"
     volumes:
