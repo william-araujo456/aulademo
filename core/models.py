@@ -8,13 +8,13 @@ class ModelBase(models.Model):
         primary_key=True,
     )
 
-    created_at = models.DateTimeField(
+    created_at = models.DateTimeField(  # Quando foi criado
         db_column='created_at',
         auto_now_add=True,
         null=False,
     )
 
-    modified_at = models.DateTimeField(
+    modified_at = models.DateTimeField(  # Última modificação
         db_column='modified_at',
         auto_now=True,
         null=False,
