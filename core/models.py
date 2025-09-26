@@ -27,7 +27,7 @@ class ModelBase(models.Model):
 
     class Meta:
         abstract = True
-        managed = False
+        managed = True
 
 
 class Author(ModelBase):
@@ -45,3 +45,59 @@ class Author(ModelBase):
         db_table = 'author'
         verbose_name = 'Author'
         verbose_name_plural = 'Authors'
+
+
+class Album(ModelBase):
+    title = models.CharField(
+        db_column='tx_title',
+        max_length=255,
+        null=False,
+    )
+
+    date = models.DateField(
+        db_column='dt_date',
+        null=False,
+    )
+
+    author = models.ForeignKey(
+        Author,
+        db_column='id_author',
+        on_delete=models.PROTECT,
+        null=False,
+    )
+
+    def __str__(self):
+        return self.title + ' - ' + self.author.name
+
+    class Meta:
+        db_table = 'album'
+        verbose_name = 'Album'
+        verbose_name_plural = 'Albums'
+
+
+class Music(ModelBase):
+    title = models.CharField(
+        db_column='tx_title',
+        max_length=255,
+        null=False,
+    )
+
+    duration = models.DurationField(
+        db_column='tm_duration',
+        null=False,
+    )
+
+    album = models.ForeignKey(
+        Album,
+        db_column='id_album',
+        on_delete=models.CASCADE,
+        null=False,
+    )
+
+    def __str__(self):
+        return f'{self.title} - {self.album.title} - {self.album.author.name}'
+
+    class Meta:
+        db_table = 'music'
+        verbose_name = 'Music'
+        verbose_name_plural = 'Musics'
